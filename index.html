@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Wheezy's Cocktail Corner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #c8a96e;
+      --text: #1a1a1a;
+      --muted: #888;
+      --border: #e8e8e8;
+      --page-width: 720px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      padding: 3rem 1.5rem;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      max-width: var(--page-width);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding-bottom: 2.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--text);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    header .subtitle {
+      margin-top: 0.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 2.8rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-header h2 {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Cocktail grid */
+    .cocktails {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .cocktail {
+      padding: 0.85rem 1rem 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cocktail:nth-child(odd) {
+      padding-right: 2rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .cocktail:nth-child(even) {
+      padding-left: 2rem;
+      padding-right: 0;
+    }
+
+    /* Remove bottom border from last row */
+    .cocktails.count-1 .cocktail:last-child,
+    .cocktails.count-2 .cocktail:nth-last-child(-n+2),
+    .cocktails.count-3 .cocktail:last-child,
+    .cocktails.count-3 .cocktail:nth-last-child(2),
+    .cocktails.count-4 .cocktail:nth-last-child(-n+2),
+    .cocktails.count-5 .cocktail:last-child,
+    .cocktails.count-5 .cocktail:nth-last-child(2),
+    .cocktails.count-6 .cocktail:nth-last-child(-n+2),
+    .cocktails.count-7 .cocktail:last-child,
+    .cocktails.count-7 .cocktail:nth-last-child(2),
+    .cocktails.count-8 .cocktail:nth-last-child(-n+2),
+    .cocktails.count-9 .cocktail:last-child,
+    .cocktails.count-9 .cocktail:nth-last-child(2),
+    .cocktails.count-10 .cocktail:nth-last-child(-n+2),
+    .cocktails.count-11 .cocktail:last-child,
+    .cocktails.count-11 .cocktail:nth-last-child(2),
+    .cocktails.count-12 .cocktail:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .cocktail-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .cocktail-ingredients {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* Single-column sections */
+    .cocktails.single {
+      grid-template-columns: 1fr;
+    }
+
+    .cocktails.single .cocktail {
+      padding-right: 0;
+      border-right: none;
+      padding-left: 0;
+    }
+
+    .cocktails.single .cocktail:last-child {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--text);
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Print — standard letter */
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.75in 0.85in;
+      }
+
+      body {
+        padding: 0;
+        font-size: 9pt;
+      }
+
+      .page {
+        max-width: 100%;
+      }
+
+      header {
+        padding-bottom: 0.2in;
+        margin-bottom: 0.2in;
+      }
+
+      header h1 {
+        font-size: 26pt;
+      }
+
+      header .subtitle {
+        font-size: 7pt;
+        letter-spacing: 0.25em;
+        margin-top: 0.06in;
+      }
+
+      .section {
+        margin-bottom: 0.18in;
+      }
+
+      .section-header {
+        margin-bottom: 0.1in;
+      }
+
+      .section-header h2 {
+        font-size: 6pt;
+        letter-spacing: 0.22em;
+      }
+
+      .cocktail {
+        padding: 0.07in 0.15in 0.07in 0;
+      }
+
+      .cocktail:nth-child(even) {
+        padding-left: 0.15in;
+      }
+
+      .cocktail-name {
+        font-size: 10pt;
+        margin-bottom: 0.02in;
+      }
+
+      .cocktail-ingredients {
+        font-size: 7pt;
+      }
+
+      footer {
+        margin-top: 0.6in;
+        padding-top: 0.3in;
+        font-size: 13pt;
+        letter-spacing: 0.2em;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 540px) {
+      .cocktails {
+        grid-template-columns: 1fr;
+      }
+
+      .cocktail,
+      .cocktail:nth-child(odd),
+      .cocktail:nth-child(even) {
+        padding: 0.85rem 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* Reset last-row border removal for mobile */
+      .cocktail:nth-last-child(2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cocktail:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <h1>Easy Wheezy's Cocktail Corner</h1>
+      <p class="subtitle">Cocktail Menu 2026</p>
+    </header>
+
+    <section class="section">
+      <div class="section-header"><h2>Buzzy</h2></div>
+      <div class="cocktails single count-1">
+        <div class="cocktail">
+          <div class="cocktail-name">Espresso Martini</div>
+          <div class="cocktail-ingredients">vodka, espresso liqueur, irish cream (optional)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header"><h2>Bubbly</h2></div>
+      <div class="cocktails count-4">
+        <div class="cocktail">
+          <div class="cocktail-name">French 75</div>
+          <div class="cocktail-ingredients">gin, sparkling wine, lemon, simple syrup</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">G & T</div>
+          <div class="cocktail-ingredients">gin, tonic, lemon or lime</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Gin Fizz</div>
+          <div class="cocktail-ingredients">gin, lemon, simple syrup, soda</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Sparkling Caribeño</div>
+          <div class="cocktail-ingredients">white rum, sparkling coconut water, lime, simple syrup</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header"><h2>Boozy</h2></div>
+      <div class="cocktails count-12">
+        <div class="cocktail">
+          <div class="cocktail-name">Army Navy</div>
+          <div class="cocktail-ingredients">gin, lemon, orgeat, Angostura bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Pendennis Club</div>
+          <div class="cocktail-ingredients">gin, apricot liqueur, lemon, Peychaud's bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Division Bell</div>
+          <div class="cocktail-ingredients">mezcal, Aperol, bitter cherry liqueur, lime</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Port of Spain</div>
+          <div class="cocktail-ingredients">mezcal, orgeat, lime, Angostura bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">King's Jubilee</div>
+          <div class="cocktail-ingredients">white rum, bitter cherry liqueur, lemon</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Classic Mai Tai</div>
+          <div class="cocktail-ingredients">aged rum, dry curaçao, lime, orgeat, simple syrup</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Piña Colada</div>
+          <div class="cocktail-ingredients">Jamaican rum, dark rum, white rum, pineapple, coconut, lime, Angostura bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Tradewinds</div>
+          <div class="cocktail-ingredients">aged rum, apricot liqueur, coconut cream, lemon</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Hotel Nacional</div>
+          <div class="cocktail-ingredients">white rum, apricot liqueur, pineapple, lime, simple syrup</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">C.R.E.A.M.</div>
+          <div class="cocktail-ingredients">Jamaican rum, lychee liqueur, banana liqueur, coconut cream, orgeat, lime</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header"><h2>Bold</h2></div>
+      <div class="cocktails count-6">
+        <div class="cocktail">
+          <div class="cocktail-name">Samurai Saketini</div>
+          <div class="cocktail-ingredients">sake, gin, lychee liqueur</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">King Kong</div>
+          <div class="cocktail-ingredients">bourbon, Jamaican rum, banana liqueur, Angostura bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Fancy Free</div>
+          <div class="cocktail-ingredients">bourbon, bitter cherry liqueur, Angostura bitters, orange bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Banana Old Fashioned</div>
+          <div class="cocktail-ingredients">bourbon, banana liqueur, black walnut bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Bacon Old Fashioned</div>
+          <div class="cocktail-ingredients">bacon infused bourbon, demerara syrup, Angostura bitters</div>
+        </div>
+        <div class="cocktail">
+          <div class="cocktail-name">Rum Old Fashioned</div>
+          <div class="cocktail-ingredients">aged rum, dark rum, Jamaican rum, demerara syrup, Angostura bitters</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Easy Wheezy's Cocktail Corner</footer>
+
+  </div>
+</body>
+</html>
