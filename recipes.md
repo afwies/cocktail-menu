@@ -27,6 +27,11 @@ Gin Fizz
 - 4oz soda
 - garnish: lemon twist
 
+Aperol Spritz
+- 3oz prosecco
+- 2oz Aperol
+- 1oz soda
+
 Sparkling Caribeño
 - 2oz white rum
 - 4oz sparkling coconut water

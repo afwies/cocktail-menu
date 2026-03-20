@@ -14,7 +14,10 @@ Gin and Tonic
 - gin, tonic, lemon or lime
 
 Gin Fizz
-- gin, lemon, simple syrup, soda
+- gin, lemon, simple syrup, seltzer
+
+Aperol Spritz
+- sparkling wine, Aperol, seltzer
 
 ## Boozy 
 
