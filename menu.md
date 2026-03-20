@@ -16,9 +16,6 @@ Gin and Tonic
 Gin Fizz
 - gin, lemon, simple syrup, soda
 
-Sparkling Caribeño
-- white rum, sparkling coconut water, lime, simple syrup
-
 ## Boozy 
 
 Pegu Club
@@ -76,3 +73,6 @@ Bacon Old Fashioned
 
 Rum Old Fashioned
 - aged rum, dark rum, Jamaican rum, demerara syrup, Angostura bitters
+
+Caramelized Rum Old Fashioned
+- overproof dark rum, dry curaçao (orange), demerara syrup, Angostura bitters, orange bitters

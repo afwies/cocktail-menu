@@ -164,6 +164,13 @@ Rum Old Fashioned
 - 1 teaspoon simple syrup
 - 2 dashes ango
 
+Caramelized Rum Old Fashioned
+- 2.5oz Plantation OFTD
+- 0.5oz curaçao
+- 0.25oz bitter syrup (see site)
+- 2 dashes ango
+- 2 dashes orange bitters
+
 Samurai Saketini
 - 1.5oz sake
 - 1oz gin
